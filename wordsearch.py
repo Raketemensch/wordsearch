@@ -23,9 +23,11 @@ def main():
     print('Generating board...')
     # Generate a list of x rows, of y columns
     wordSearch = generateBoard(15, 15)
-    print(wordSearch)
     print('Checking for words...')
-    searchForWords(wordList, wordSearch)
+    foundWords = searchForWords(wordList, wordSearch)
+    print('The following words were found:')
+    for word in foundWords:
+        print(word)
 
 
 def parseArgs():
@@ -97,13 +99,13 @@ def searchForWords(wordList, wordSearch):
     colList = []
     columnLetters = []
     for row in wordSearch:
-        print(len(row))
         for i in range(0, len(row)):
             columnLetters.append(row[i])
             i = i + 1
         colList.append(columnLetters)
 
     # Search diagonally
+    return foundWords
 
 
 if __name__ == '__main__':
